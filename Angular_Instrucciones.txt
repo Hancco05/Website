@@ -1,0 +1,44 @@
+### Comandos Básicos para Angular
+
+1. **Instalar Angular CLI**
+   npm install -g @angular/cli
+
+2. **Crear un nuevo proyecto Angular**
+   ng new mi-proyecto
+   cd mi-proyecto
+
+3. **Iniciar el servidor de desarrollo**
+   ng serve
+   (Acceder en el navegador: http://localhost:4200/)
+
+4. **Generar un nuevo componente**
+   ng generate component nombre-componente
+   (o usar: ng g c nombre-componente)
+
+5. **Generar un nuevo servicio**
+   ng generate service nombre-servicio
+   (o usar: ng g s nombre-servicio)
+
+6. **Generar un nuevo módulo**
+   ng generate module nombre-modulo
+   (o usar: ng g m nombre-modulo)
+
+7. **Construir el proyecto para producción**
+   ng build --configuration=production
+
+8. **Ejecutar pruebas unitarias**
+   ng test
+
+9. **Ejecutar pruebas end-to-end (E2E)**
+   ng e2e
+
+10. **Actualizar Angular a la última versión**
+    ng update @angular/cli @angular/core
+
+### Conceptos Clave de Angular
+
+- **Componentes:** Base de la UI, definidos con @Component.
+- **Servicios:** Manejan lógica y datos reutilizables con @Injectable.
+- **Módulos:** Organizan código en secciones reutilizables con @NgModule.
+- **Enrutamiento:** Se gestiona con RouterModule y routes.
+
