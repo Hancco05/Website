@@ -16,16 +16,19 @@
                 <input type="text" class="form-control" id="exampleInputPassword1" formControlName="codigo">
             </div>
             <button type="submit" class="btn btn-primary">Consultar</button>
+            <p class="text.danger" *ngIf="showError">{{mensajeError}}</p>
         </form>
      </div>
      <div class="col-lg-6 col-md-6 alineacion">
         <div class="card">
             <div class="card-body">
                 <ul>
-                    <li>Temperatura: </li>
-                    <li>Ciudad:</li>
-                    <li>Latitud:</li>
-                    <li>Longitud:</li>
+                    <li>Descripcion: {{descripcion}}</li>
+                    <li>Temperatura: {{Temperatura}}</li>
+                    <li>Humedad: {{humedad}}</li>
+                    <li>Ciudad: {{name}}</li>
+                    <li>Latitud: {{latitud}}</li>
+                    <li>Longitud: {{longitud}}</li>
                 </ul>
             </div>
         </div>

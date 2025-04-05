@@ -13,6 +13,15 @@ import { TemperaturaService } from '../../services/temperatura.service';
 })
 export class TiempoComponent implements OnInit {
   formulario!: FormGroup;
+  tiempo: any;
+  name: any;
+  Temperatura: any;
+  humedad: any;
+  latitud: any;
+  longitud: any;
+  descripcion: any;
+  showError: boolean = false;
+  mensajeError: string = ""
 
   constructor(private fb: FormBuilder, private _util: UtilService, private _tiempo: TemperaturaService) {
     this.iniciaFormulario();
@@ -32,7 +41,20 @@ export class TiempoComponent implements OnInit {
 
     this._tiempo.getEstadoTiempo(this.formulario.get('ciudad')?.value, this.formulario.get('codigo')?.value)
       .subscribe((respuesta: any) => {
+        this.tiempo = respuesta;
+        this.name = this.tiempo.name;
+        this.Temperatura = this.tiempo.main.temp;
+        this.humedad = this.tiempo.main.humidity;
+        this.latitud = this.tiempo.coord.lat;
+        this.longitud = this.tiempo.coord.lon;
+        this.descripcion = this.tiempo.weather[0].description;
+
         console.log("respuesta: ", respuesta);
-         })
+      },
+        (error: any) => {
+          this.showError = true;
+          this.mensajeError = "Error al consultar el estado del tiempo";
+        }
+      )
   }
 }
