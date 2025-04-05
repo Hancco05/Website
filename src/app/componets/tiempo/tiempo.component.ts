@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // útil para directivas básicas como *ngIf
 import { UtilService } from '../../services/validations/util.service';
+import { TemperaturaService } from '../../services/temperatura.service';
 
 @Component({
   selector: 'app-tiempo',
@@ -13,7 +14,7 @@ import { UtilService } from '../../services/validations/util.service';
 export class TiempoComponent implements OnInit {
   formulario!: FormGroup;
 
-  constructor(private fb: FormBuilder, private _util: UtilService) {
+  constructor(private fb: FormBuilder, private _util: UtilService, private _tiempo: TemperaturaService) {
     this.iniciaFormulario();
   }
 
@@ -28,5 +29,10 @@ export class TiempoComponent implements OnInit {
 
   consultar(): void {
     console.log(this.formulario.value);
+
+    this._tiempo.getEstadoTiempo(this.formulario.get('ciudad')?.value, this.formulario.get('codigo')?.value)
+      .subscribe((respuesta: any) => {
+        console.log("respuesta: ", respuesta);
+         })
   }
 }
