@@ -1,17 +1,30 @@
 <div class="container">
-     <h4>Consulta del tiempo por ciudad</h4>
-     <div class="col-lg-6">
-        <form>
+    <br> 
+    <h4>Consulta del tiempo por ciudad</h4>
+     <div class="col-lg-6 col-md-6 alineacion card">
+        <form [formGroup]="formulario" (ngSubmit)="consultar()">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label for="exampleInputEmail1" class="form-label">Ciudad</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" 
+                aria-describedby="emailHelp" formControlName="ciudad">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputPassword1" class="form-label">Codigo Ciudad</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" formControlName="codigo">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Consultar</button>
         </form>
+     </div>
+     <div class="col-lg-6 alineacion">
+        <div class="card">
+            <div class="card-body">
+                <ul>
+                    <li>Temperatura: </li>
+                    <li>Ciudad:</li>
+                    <li>Latitud:</li>
+                    <li>Longitud:</li>
+                </ul>
+            </div>
+        </div>
      </div>
 </div>
