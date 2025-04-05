@@ -7,6 +7,9 @@
                 <label for="exampleInputEmail1" class="form-label">Ciudad</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" 
                 aria-describedby="emailHelp" formControlName="ciudad">
+                <p class="text-danger" *ngIf="formulario.get('ciudad')?.invalid && formulario.get('ciudad')?.touched">
+                    Por favor escriba letras en el campo ciudad
+                </p>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Codigo Ciudad</label>
@@ -15,7 +18,7 @@
             <button type="submit" class="btn btn-primary">Consultar</button>
         </form>
      </div>
-     <div class="col-lg-6 alineacion">
+     <div class="col-lg-6 col-md-6 alineacion">
         <div class="card">
             <div class="card-body">
                 <ul>
