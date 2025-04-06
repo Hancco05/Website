@@ -8,9 +8,10 @@ import { TemperaturaService } from '../../services/temperatura.service';
   selector: 'app-tiempo',
   standalone: true, // ← MUY importante si estás usando standalone components
   imports: [CommonModule, ReactiveFormsModule], // ← Aquí importa ReactiveFormsModule
-  templateUrl: './tiempo.component.html',
+  templateUrl: '../tiempo/tiempo.component.html',
   styleUrls: ['./tiempo.component.css']
 })
+
 export class TiempoComponent implements OnInit {
   formulario!: FormGroup;
   tiempo: any;
