@@ -1,20 +1,83 @@
-proyecto de angular comenzar-+
+Resumen Básico de Angular
+🔹 ¿Qué es Angular?
+Angular es un framework de desarrollo web creado por Google. Se usa para construir aplicaciones web SPA (Single Page Applications), es decir, que se cargan en una sola página sin recargar la web.
 
-sistema de web site
+🔹 Estructura principal
+Componentes: piezas reutilizables que manejan lógica + vista (HTML, CSS, TS).
 
-proceso con angular 2.0
+Módulos: organizan el código y agrupan componentes.
 
-hoy se avanza algo ahahahaha
+Rutas: permiten navegar entre componentes (routerLink, RouterModule).
 
+Servicios: lógica reutilizable (por ejemplo, llamadas HTTP).
 
-hoy si o si
+🔹 Comando de inicio rápido (CLI)
+bash
+Copiar
+Editar
+ng new mi-app        # Crear proyecto
+ng serve             # Ejecutar en localhost:4200
+ng generate component nombre  # Crear componente
+🔹 Ejemplo básico de componente
+main.component.ts
 
-avances push para avanzar el website angular
+ts
+Copiar
+Editar
+import { Component } from '@angular/core';
 
-finalizacion de curso angular
+@Component({
+  selector: 'app-main',
+  templateUrl: './main.component.html'
+})
+export class MainComponent {
+  mensaje = 'Hola desde Angular';
+}
+main.component.html
 
-standby proyect ajajaja
+html
+Copiar
+Editar
+<h1>{{ mensaje }}</h1>
+<button (click)="mensaje = 'Texto actualizado'">Cambiar texto</button>
+🔹 Ruteo básico (app.routes.ts)
+ts
+Copiar
+Editar
+import { Routes } from '@angular/router';
+import { MainComponent } from './main/main.component';
 
-comenzando...
+export const routes: Routes = [
+  { path: 'main', component: MainComponent },
+  { path: '', redirectTo: 'main', pathMatch: 'full' }
+];
+En app.component.html:
 
-ultimo slip
+html
+Copiar
+Editar
+<router-outlet></router-outlet>
+🔹 Formulario reactivo
+ts
+Copiar
+Editar
+formulario = this.fb.group({
+  ciudad: ['', Validators.required]
+});
+En HTML:
+
+html
+Copiar
+Editar
+<form [formGroup]="formulario">
+  <input formControlName="ciudad">
+</form>
+🔹 *ngIf, *ngFor y eventos
+html
+Copiar
+Editar
+<p *ngIf="mostrar">Hola mundo</p>
+<ul>
+  <li *ngFor="let ciudad of ciudades">{{ ciudad }}</li>
+</ul>
+<button (click)="mostrar = !mostrar">Mostrar/Ocultar</button>
